@@ -1,0 +1,15 @@
+jobs:
+    main:
+        requires: [~pr, ~commit]
+        image: centos7
+        environment:
+            USER_SHELL_BIN: bash
+        steps:
+            - cd: |
+                pwd                        # prints '/sd/workspace/src/github.com/tkyi/mytest'
+                cd ..
+            - pwd: pwd                     # prints '/sd/workspace/src/github.com/tkyi'
+            - bash-only: echo test     # this will echo ba
+            - fail: commanddoesnotexist
+            - teardown-mystep1: echo goodbye
+            - teardown-mystep2: echo world
