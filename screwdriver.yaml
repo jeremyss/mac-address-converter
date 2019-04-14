@@ -1,7 +1,7 @@
 jobs:
     main:
         requires: [~pr, ~commit]
-        image: centos7
+        image: centos:latest
         environment:
             USER_SHELL_BIN: bash
         steps:
